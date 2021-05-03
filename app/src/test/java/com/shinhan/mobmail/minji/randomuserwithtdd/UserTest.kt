@@ -1,5 +1,6 @@
 package com.shinhan.mobmail.minji.randomuserwithtdd
 
+import com.shinhan.mobmail.minji.randomuserwithtdd.domain.entity.User
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 
