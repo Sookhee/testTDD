@@ -3,6 +3,7 @@ package com.shinhan.mobmail.minji.randomuserwithtdd
 import android.util.Log
 import com.shinhan.mobmail.minji.randomuserwithtdd.data.UserDataSourceImpl
 import com.shinhan.mobmail.minji.randomuserwithtdd.domain.entity.User
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -39,5 +40,18 @@ class UserTest {
         // then
         assertNotNull(single)
         assert(single is Single<ArrayList<User>>)
+    }
+
+    @Test
+    fun testUserRepositoryGetUserList() {
+        // given
+        val userRepository = UserRepositoryImpl()
+        val userLength = 10
+
+        // when
+        val result = userRepository.getUserList()
+
+        // then
+        assert(result is Observable<DataResult<ArrayList<User>>>)
     }
 }
