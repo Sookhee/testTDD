@@ -54,4 +54,17 @@ class UserTest {
 
         // then
     }
+
+    @Test
+    fun testGetUserListUseCase() {
+        // given
+        val userUseCase = UseCaseImpl(UserRepositoryImpl(UserDataSourceImpl()))
+        val userLength = 10
+
+        // when
+        userUseCase(userLength)
+
+        // then
+
+    }
 }
