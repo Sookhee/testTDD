@@ -5,6 +5,8 @@ import com.shinhan.mobmail.minji.randomuserwithtdd.data.UserDataSource
 import com.shinhan.mobmail.minji.randomuserwithtdd.data.UserDataSourceImpl
 import com.shinhan.mobmail.minji.randomuserwithtdd.data.UserRepositoryImpl
 import com.shinhan.mobmail.minji.randomuserwithtdd.domain.entity.User
+import com.shinhan.mobmail.minji.randomuserwithtdd.domain.usecase.GetUserListUseCase
+import com.shinhan.mobmail.minji.randomuserwithtdd.domain.usecase.GetUserListUseCaseImpl
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.plugins.RxAndroidPlugins
@@ -58,13 +60,13 @@ class UserTest {
     @Test
     fun testGetUserListUseCase() {
         // given
-        val userUseCase = UseCaseImpl(UserRepositoryImpl(UserDataSourceImpl()))
+        val userUseCase = GetUserListUseCaseImpl(UserRepositoryImpl(UserDataSourceImpl()))
         val userLength = 10
 
         // when
-        userUseCase(userLength)
+        val result = userUseCase(userLength)
 
         // then
-
+        assertNotNull(result)
     }
 }
