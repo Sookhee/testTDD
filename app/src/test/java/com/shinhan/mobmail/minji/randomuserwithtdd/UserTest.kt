@@ -25,12 +25,13 @@ class UserTest {
     fun testGetUserList() {
         // given
         val userDataSource = UserDataSourceImpl()
+        val userLength = 10
 
         // when
-        val users = userDataSource.getUserList()
+        val users = userDataSource.getUserList(userLength)
 
         // then
         assertNotNull(users)
-        assert(users is ArrayList<User>)
+        assertEquals(userLength, users.size)
     }
 }
